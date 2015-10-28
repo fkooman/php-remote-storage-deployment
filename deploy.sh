@@ -87,6 +87,12 @@ sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0
 # Initialize DB and CA
 sudo -u apache php-remote-storage-init
 
+# Enable WebFinger php-remote-storage snippets
+sudo cp /etc/php-webfinger/conf.d/php-remote-storage-05.conf.example /etc/php-webfinger/conf.d/php-remote-storage-05.conf
+sudo sed -i 's|/php-remote-storage||' /etc/php-webfinger/conf.d/php-remote-storage-05.conf
+sudo cp /etc/php-webfinger/conf.d/php-remote-storage-03.conf.example /etc/php-webfinger/conf.d/php-remote-storage-03.conf
+sudo sed -i 's|/php-remote-storage||' /etc/php-webfinger/conf.d/php-remote-storage-03.conf
+
 ###############################################################################
 # DAEMONS
 ###############################################################################
