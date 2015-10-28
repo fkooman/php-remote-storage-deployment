@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Script to deploy php-remote-storage on a Fedora >= 22 installation using DNF.
-# Tested on Fedora 22.
+# Tested on Fedora 23 pre-release.
 
 ###############################################################################
 # VARIABLES
@@ -39,10 +39,10 @@ sudo openssl genrsa -out /etc/pki/tls/private/${HOSTNAME}.key 2048
 sudo chmod 600 /etc/pki/tls/private/${HOSTNAME}.key
 
 # Create the CSR (can be used to obtain real certificate!)
-sudo openssl req -sha256 -new -key /etc/pki/tls/private/${HOSTNAME}.key -out ${HOSTNAME}.csr
+sudo openssl req -subj "/CN=${HOSTNAME}" -sha256 -new -key /etc/pki/tls/private/${HOSTNAME}.key -out ${HOSTNAME}.csr
 
 # Create the (self signed) certificate and install it
-sudo openssl req -sha256 -new -x509 -key /etc/pki/tls/private/${HOSTNAME}.key -out /etc/pki/tls/certs/${HOSTNAME}.crt
+sudo openssl req -subj "/CN=${HOSTNAME}" -sha256 -new -x509 -key /etc/pki/tls/private/${HOSTNAME}.key -out /etc/pki/tls/certs/${HOSTNAME}.crt
 
 ###############################################################################
 # APACHE
