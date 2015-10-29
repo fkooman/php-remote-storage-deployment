@@ -20,15 +20,16 @@ sudo dnf -y update
 # set hostname
 sudo hostnamectl set-hostname ${HOSTNAME}
 
+###############################################################################
+# SOFTWARE
+###############################################################################
+
 # enable COPR repos
 sudo dnf -y copr enable fkooman/php-base
 sudo dnf -y copr enable fkooman/php-remote-storage
 
-# install additional software
-sudo dnf -y install mod_ssl php php-opcache php-fpm httpd openssl
-
-# install php-remote-storage and php-webfinger
-sudo dnf -y install php-remote-storage php-webfinger
+# install software
+sudo dnf -y install mod_ssl php php-opcache php-fpm httpd openssl php-remote-storage php-webfinger
 
 ###############################################################################
 # CERTIFICATE
@@ -84,7 +85,7 @@ sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0
 # enable Twig template cache
 # XXX sudo sed -i 's/;templateCache/templateCache/' /etc/php-remote-storage/server.ini
 
-# Initialize DB and CA
+# Initialize DB
 sudo -u apache php-remote-storage-init
 
 # Create storage directory (XXX can we do this from RPM?) 
