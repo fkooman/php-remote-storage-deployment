@@ -74,7 +74,6 @@ sudo sed -i 's/expose_php = On/expose_php = Off/' /etc/php.ini
 sudo sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=60/' /etc/php.d/10-opcache.ini
 
 # PHP-FPM configuration
-# XXX: use socket instead?
 sudo sed -i "s|listen = /run/php-fpm/www.sock|listen = [::]:9000|" /etc/php-fpm.d/www.conf
 sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0.0.1,::1/" /etc/php-fpm.d/www.conf
 
