@@ -1,32 +1,53 @@
-# On a server / VM
+# Deployment on VM/Server
+
+We assume you have a clean installation of Fedora 23. We tested it with the
+OpenStack image available [here](https://getfedora.org/en/cloud/download/).
+
+    $ curl -L -O https://github.com/fkooman/php-remote-storage-deployment/archive/master.tar.gz
+    $ tar -xzf master.tar.gz
+    $ cd php-remote-storage-deployment-master
+
+Now you can modify the `deploy.sh` script to change the `HOSTNAME` variable to
+your own name of choice, e.g.:
+
+    HOSTNAME=storage.tuxed.net
+
+Now, run the script:
+
+    $ sh deploy.sh
+
+This should set everything up, including a working (self-signed) TLS 
+certificate.
+
+## Obtaining a CA Signed Certificate
+The script will output a CSR (certificate signing request) in the directory
+where you run `deploy.sh` that can be sent to a CA of choice. In this 
+example case it would be `storage.tuxed.net.csr`. 
+
+Once you obtain a certificate from your CA you can overwrite 
+`/etc/pki/tls/certs/storage.tuxed.net.crt`. Do not forget to also place the 
+certificate chain you obtained from the CA in 
+`/etc/pki/tls/certs/storage.tuxed.net-chain.crt`, and enable the chain in 
+`/etc/httpd/conf.d/storage.tuxed.net.conf`:
+
+    SSLCertificateChainFile /etc/pki/tls/certs/storage.tuxed.net-chain.crt
+
+Now restart Apache and you should be fully up and running!
+
+    $ sudo systemctl restart httpd
+
+
+# Deployment using Vagrant
 
 ## Requirements
 
-* [Git](https://www.git-scm.com/downloads)
-* Fedora 22+
-
-Clone this repository, run the deploy script
-
-```
-git clone git@github.com:fkooman/php-remote-storage-deployment.git && cd php-remote-storage-deployment
-./deploy.sh
-```
-
-The remotestorage server will be available at on port 443 (self-signed certificate)
-
-# Using Vagrant
-
-## Requirements
-
-* [Git](https://www.git-scm.com/downloads)
 * A [recent version of Vagrant](https://www.vagrantup.com/downloads.html) that supports downloading base boxes from
   Vagrant Cloud (1.5+)
 
-Clone this repository, run Vagrant
+Get the content of this repository (or clone it), run Vagrant
 
+    $ curl -L -O https://github.com/fkooman/php-remote-storage-deployment/archive/master.tar.gz
+    $ tar -xzf master.tar.gz
+    $ cd php-remote-storage-deployment-master
+    $ vagrant up
 ```
-git clone git@github.com:fkooman/php-remote-storage-deployment.git && php-remote-storage-deployment
-vagrant up
-```
-
-The remotestorage server will be available at [https://localhost:8443/](https://localhost:8443/) from your computer (self-signed certificate)
