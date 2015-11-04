@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Script to deploy php-remote-storage on a Fedora >= 22 installation using DNF.
-# Tested on Fedora 23 pre-release.
+#
+# Tested on Fedora 23
 
 ###############################################################################
 # VARIABLES
@@ -49,7 +50,7 @@ sudo openssl req -subj "/CN=${HOSTNAME}" -sha256 -new -x509 -key /etc/pki/tls/pr
 # APACHE
 ###############################################################################
 
-# empty the default Apache config files
+# empty the default Apache config file
 sudo sh -c 'echo "" > /etc/httpd/conf.d/php-remote-storage.conf'
 
 # use the global httpd config file
@@ -82,7 +83,7 @@ sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0
 ###############################################################################
 
 # enable Twig template cache
-# XXX sudo sed -i 's/;templateCache/templateCache/' /etc/php-remote-storage/server.ini
+sudo sed -i 's/;templateCache/templateCache/' /etc/php-remote-storage/server.ini
 
 # Initialize DB
 sudo -u apache php-remote-storage-init
