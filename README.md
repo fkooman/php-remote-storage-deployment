@@ -50,4 +50,8 @@ Get the content of this repository (or clone it), run Vagrant
     $ tar -xzf master.tar.gz
     $ cd php-remote-storage-deployment-master
     $ vagrant up
-```
+
+By default `vagrant up` will use the virtualbox provider. This Fedora 23
+image also support libvirt:
+
+    $ vagrant up --provider libvirt
