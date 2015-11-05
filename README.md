@@ -51,7 +51,17 @@ Get the content of this repository (or clone it), run Vagrant
     $ cd php-remote-storage-deployment-master
     $ vagrant up
 
-By default `vagrant up` will use the virtualbox provider. This Fedora 23
-image also support libvirt:
+By default `vagrant up` will use the virtualbox provider. 
 
-    $ vagrant up --provider libvirt
+## Vagrant On Fedora
+
+If you are using Fedora >= 22 on your development system it is also very easy
+to use Vagrant to run the software. The default will be the `libvirt` provider.
+
+    $ sudo dnf -y install vagrant vagrant-libvirt
+    $ sudo systemctl enable libvirtd
+    $ sudo systemctl start libvirtd
+
+Now you can initialize the Vagrant box:
+
+    $ vagrant up
