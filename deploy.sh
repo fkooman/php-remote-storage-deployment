@@ -52,6 +52,7 @@ sudo openssl req -subj "/CN=${HOSTNAME}" -sha256 -new -x509 -key /etc/pki/tls/pr
 
 # empty the default Apache config file
 sudo sh -c 'echo "" > /etc/httpd/conf.d/php-remote-storage.conf'
+sudo sh -c 'echo "" > /etc/httpd/conf.d/php-webfinger.conf'
 
 # use the global httpd config file
 sudo cp storage.example-httpd.conf /etc/httpd/conf.d/${HOSTNAME}.conf
