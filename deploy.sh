@@ -15,7 +15,6 @@ HOSTNAME=storage.example
 # SYSTEM
 ###############################################################################
 
-sudo dnf clean all
 sudo dnf -y update
 
 # set hostname
