@@ -70,7 +70,7 @@ sudo sed -i 's/;date.timezone =/date.timezone = UTC/' /etc/php.ini
 
 #https://secure.php.net/manual/en/ini.core.php#ini.expose-php
 sudo sed -i 's/expose_php = On/expose_php = Off/' /etc/php.ini
- 
+
 # recommendation from https://php.net/manual/en/opcache.installation.php
 sudo sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=60/' /etc/php.d/10-opcache.ini
 
@@ -88,7 +88,7 @@ sudo sed -i 's/;templateCache/templateCache/' /etc/php-remote-storage/server.ini
 # Initialize DB
 sudo -u apache php-remote-storage-init
 
-# Create storage directory (XXX can we do this from RPM?) 
+# Create storage directory (XXX can we do this from RPM?)
 sudo -u apache mkdir -p /var/lib/php-remote-storage/storage
 
 # Enable WebFinger php-remote-storage snippets

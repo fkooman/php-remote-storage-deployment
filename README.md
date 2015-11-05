@@ -1,4 +1,5 @@
 # Deployment on VM/Server
+
 We assume you have a clean installation of Fedora 23. We tested it with the
 OpenStack image available [here](https://getfedora.org/en/cloud/download/).
 
@@ -12,7 +13,7 @@ your own name of choice, e.g.:
     HOSTNAME=storage.tuxed.net
 
 Now, run the script:
-    
+
     $ sh deploy.sh
 
 This should set everything up, including a working (self-signed) TLS 
@@ -34,3 +35,23 @@ certificate chain you obtained from the CA in
 Now restart Apache and you should be fully up and running!
 
     $ sudo systemctl restart httpd
+
+
+# Deployment using Vagrant
+
+## Requirements
+
+* A [recent version of Vagrant](https://www.vagrantup.com/downloads.html) that supports downloading base boxes from
+  Vagrant Cloud (1.5+)
+
+Get the content of this repository (or clone it), run Vagrant
+
+    $ curl -L -O https://github.com/fkooman/php-remote-storage-deployment/archive/master.tar.gz
+    $ tar -xzf master.tar.gz
+    $ cd php-remote-storage-deployment-master
+    $ vagrant up
+
+By default `vagrant up` will use the virtualbox provider. This Fedora 23
+image also support libvirt:
+
+    $ vagrant up --provider libvirt
