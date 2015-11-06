@@ -51,7 +51,16 @@ Get the content of this repository (or clone it), run Vagrant
     $ cd php-remote-storage-deployment-master
     $ vagrant up
 
-By default `vagrant up` will use the virtualbox provider. 
+By default `vagrant up` will use the Virtualbox provider.
+
+If your host support Avahi/ZeroConf (by default OS X uses it) the
+remoteStorage server will be available under https://storage.local. For now
+you need to accept the self-signed certificate. You can then log in with a
+remoteStorage app using `foo@storage.local` and `bar` as a password.
+
+If you're not using Avahi/ZeroConf you can add an entry to `/etc/hosts`:
+
+    $ echo "192.168.33.10\tstorage.local" | sudo tee -a /etc/hosts
 
 ## Vagrant On Fedora
 
