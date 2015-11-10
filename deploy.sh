@@ -92,6 +92,10 @@ sudo -u apache php-remote-storage-init
 # Create storage directory (XXX can we do this from RPM?)
 sudo -u apache mkdir -p /var/lib/php-remote-storage/storage
 
+# Add some users
+sudo php-remote-storage-add-user foo bar
+sudo php-remote-storage-add-user bar baz
+
 # Install WebFinger snippets
 sudo cp webfinger-rs-03.conf /etc/php-webfinger/conf.d/webfinger-rs-03.conf
 sudo cp webfinger-rs-05.conf /etc/php-webfinger/conf.d/webfinger-rs-05.conf
