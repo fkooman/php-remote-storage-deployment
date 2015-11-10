@@ -29,7 +29,8 @@ sudo dnf -y copr enable fkooman/php-base
 sudo dnf -y copr enable fkooman/php-remote-storage
 
 # install software
-sudo dnf -y install mod_ssl php php-opcache php-fpm httpd openssl php-remote-storage php-webfinger
+sudo dnf -y install mod_ssl php php-opcache php-fpm httpd mod_xsendfile \
+    openssl php-remote-storage php-webfinger
 
 ###############################################################################
 # CERTIFICATE
@@ -83,7 +84,7 @@ sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0
 ###############################################################################
 
 # enable Twig template cache
-sudo sed -i 's/;templateCache/templateCache/' /etc/php-remote-storage/server.ini
+sudo sed -i 's/#templateCache/templateCache/' /etc/php-remote-storage/server.yaml
 
 # Initialize DB
 sudo -u apache php-remote-storage-init
@@ -91,11 +92,9 @@ sudo -u apache php-remote-storage-init
 # Create storage directory (XXX can we do this from RPM?)
 sudo -u apache mkdir -p /var/lib/php-remote-storage/storage
 
-# Enable WebFinger php-remote-storage snippets
-sudo cp /etc/php-webfinger/conf.d/php-remote-storage-05.conf.example /etc/php-webfinger/conf.d/php-remote-storage-05.conf
-sudo sed -i 's|/php-remote-storage||' /etc/php-webfinger/conf.d/php-remote-storage-05.conf
-sudo cp /etc/php-webfinger/conf.d/php-remote-storage-03.conf.example /etc/php-webfinger/conf.d/php-remote-storage-03.conf
-sudo sed -i 's|/php-remote-storage||' /etc/php-webfinger/conf.d/php-remote-storage-03.conf
+# Install WebFinger snippets
+sudo cp webfinger-rs-03.conf /etc/php-webfinger/conf.d/webfinger-rs-03.conf
+sudo cp webfinger-rs-05.conf /etc/php-webfinger/conf.d/webfinger-rs-05.conf
 
 ###############################################################################
 # DAEMONS
