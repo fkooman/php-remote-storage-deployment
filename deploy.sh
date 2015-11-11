@@ -97,8 +97,8 @@ sudo php-remote-storage-add-user foo bar
 sudo php-remote-storage-add-user bar baz
 
 # Install WebFinger snippets
-sudo cp webfinger-rs-03.conf /etc/php-webfinger/conf.d/webfinger-rs-03.conf
-sudo cp webfinger-rs-05.conf /etc/php-webfinger/conf.d/webfinger-rs-05.conf
+sudo cp webfinger-rs-03.conf /etc/php-webfinger/conf.d/remoteStorage-03.conf
+sudo cp webfinger-rs-05.conf /etc/php-webfinger/conf.d/remoteStorage-05.conf
 
 ###############################################################################
 # DAEMONS
