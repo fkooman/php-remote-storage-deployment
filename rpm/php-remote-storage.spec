@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           7638c0cdc13cd59153d8f88868babfd376152cae
+%global github_commit           879b001e6569efb26452722b50ed02d34617f456
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.15%{?dist}
+Release:    0.16%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -153,6 +153,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Thu Nov 12 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.16
+- update to 879b001e6569efb26452722b50ed02d34617f456
+
 * Tue Nov 10 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.15
 - update to 7638c0cdc13cd59153d8f88868babfd376152cae
 - add mod_xsendfile dependency
