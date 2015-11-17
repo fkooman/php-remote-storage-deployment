@@ -29,8 +29,8 @@ sudo dnf -y copr enable fkooman/php-base
 sudo dnf -y copr enable fkooman/php-remote-storage
 
 # install software
-sudo dnf -y install mod_ssl php php-opcache php-fpm httpd mod_xsendfile \
-    openssl php-remote-storage php-webfinger
+sudo dnf -y install mod_ssl php php-opcache php-fpm httpd mod_security \
+    mod_xsendfile openssl php-remote-storage php-webfinger
 
 ###############################################################################
 # CERTIFICATE
