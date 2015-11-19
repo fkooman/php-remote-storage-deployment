@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           00b066828752254435d50a44ecb9882bbe46e204
+%global github_commit           16a72524b8f9169422730a695f3d6de8deb3874f
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.18%{?dist}
+Release:    0.21%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -44,14 +44,14 @@ BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
 BuildRequires:  php-composer(fkooman/json) >= 1.0.0
 BuildRequires:  php-composer(fkooman/json) < 2.0.0
-BuildRequires:  php-composer(fkooman/oauth) >= 4.0.0
-BuildRequires:  php-composer(fkooman/oauth) < 5.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 2.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) < 2.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 2.0.0
+BuildRequires:  php-composer(fkooman/oauth) >= 5.0.0
+BuildRequires:  php-composer(fkooman/oauth) < 6.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 3.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) >= 1.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) < 2.0.0
 %endif
@@ -70,16 +70,16 @@ Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
 Requires:   php-composer(fkooman/json) >= 1.0.0
 Requires:   php-composer(fkooman/json) < 2.0.0
-Requires:   php-composer(fkooman/oauth) >= 4.0.0
-Requires:   php-composer(fkooman/oauth) < 5.0.0
+Requires:   php-composer(fkooman/oauth) >= 5.0.0
+Requires:   php-composer(fkooman/oauth) < 6.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) < 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) < 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 3.0.0
 Requires:   php-composer(fkooman/tpl-twig) >= 1.0.0
 Requires:   php-composer(fkooman/tpl-twig) < 2.0.0
 Requires:   php-composer(symfony/class-loader)
@@ -153,6 +153,15 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.21
+- update to 16a72524b8f9169422730a695f3d6de8deb3874f
+
+* Wed Nov 18 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.20
+- update to 336752e3e3db1af68ff480e318889b51c0f19a6a
+
+* Tue Nov 17 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.19
+- update to 6b7e4858a64dac5f2bb18236a152731f5413927c
+
 * Fri Nov 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.18
 - update to 00b066828752254435d50a44ecb9882bbe46e204
 
