@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           16a72524b8f9169422730a695f3d6de8deb3874f
+%global github_commit           83c981cbe58a6cb37a227d57476929ac60c5193e
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.21%{?dist}
+Release:    0.25%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -50,8 +50,8 @@ BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 2.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) >= 1.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) < 2.0.0
 %endif
@@ -78,8 +78,8 @@ Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
 Requires:   php-composer(fkooman/tpl-twig) >= 1.0.0
 Requires:   php-composer(fkooman/tpl-twig) < 2.0.0
 Requires:   php-composer(symfony/class-loader)
@@ -149,10 +149,22 @@ fi
 %{_datadir}/%{name}/views
 %{_datadir}/%{name}/config
 %dir %attr(0700,apache,apache) %{_localstatedir}/lib/%{name}
-%doc README.md CHANGES.md composer.json config/server.yaml.example
+%doc README.md CHANGES.md composer.json config/server.yaml.example contrib specification
 %license agpl-3.0.txt
 
 %changelog
+* Fri Nov 20 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.25
+- update to 83c981cbe58a6cb37a227d57476929ac60c5193e
+
+* Fri Nov 20 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.24
+- update to f120ece0ee01e3c328bacbbc35522be94e22b267
+
+* Fri Nov 20 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.23
+- rebuilt
+
+* Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.22
+- update to 91da54b26b596c1d9fc77c40f92b2f8c7c4d44f8
+
 * Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.21
 - update to 16a72524b8f9169422730a695f3d6de8deb3874f
 
