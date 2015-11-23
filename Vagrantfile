@@ -57,9 +57,5 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "file", source: "storage.example-httpd.conf",
                               destination: "/home/vagrant/storage.example-httpd.conf"
-  config.vm.provision "file", source: "webfinger-rs-03.conf",
-                              destination: "/home/vagrant/webfinger-rs-03.conf"
-  config.vm.provision "file", source: "webfinger-rs-05.conf",
-                              destination: "/home/vagrant/webfinger-rs-05.conf"
   config.vm.provision "shell", path: "deploy.sh"
 end
