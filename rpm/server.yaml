@@ -1,0 +1,5 @@
+storageDir: /var/lib/php-remote-storage/storage
+templateCache: /var/lib/php-remote-storage/tpl
+Users:
+Db:
+    dsn: 'sqlite:/var/lib/php-remote-storage/rs.sqlite'
