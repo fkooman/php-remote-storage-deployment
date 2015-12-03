@@ -82,12 +82,6 @@ sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0
 # APP
 ###############################################################################
 
-# Initialize DB
-sudo -u apache php-remote-storage-init
-
-# Create storage directory (XXX can we do this from RPM?)
-sudo -u apache mkdir -p /var/lib/php-remote-storage/storage
-
 # Add a user foo with password bar
 sudo php-remote-storage-add-user foo bar
 

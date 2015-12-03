@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           c6163cf7ca095416aa8fe4e993f8e2b57006c197
+%global github_commit           0fc3b2e2ccd528cbe7d2688a65ae9dc42f5a3abe
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.28%{?dist}
+Release:    0.30%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -153,6 +153,12 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Thu Dec 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.30
+- update to 0fc3b2e2ccd528cbe7d2688a65ae9dc42f5a3abe
+
+* Wed Dec 02 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.29
+- update to 01e13f56dae8e20bd45d253f5498492e118fc094
+
 * Tue Nov 24 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.28
 - update to c6163cf7ca095416aa8fe4e993f8e2b57006c197
 
