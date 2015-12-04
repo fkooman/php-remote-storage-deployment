@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.32%{?dist}
+Release:    0.34%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -24,6 +24,7 @@ URL:        https://github.com/%{github_owner}/%{github_name}
 Source0:    %{url}/archive/%{github_commit}/%{name}-%{version}-%{github_short}.tar.gz
 Source1:    %{name}-autoload.php
 Source2:    %{name}-httpd.conf
+Source3:    %{name}-config.yaml
 
 BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
@@ -110,11 +111,17 @@ mkdir -p ${RPM_BUILD_ROOT}%{_datadir}/%{name}
 cp -pr web views src ${RPM_BUILD_ROOT}%{_datadir}/%{name}
 
 mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
-cp -pr bin/* ${RPM_BUILD_ROOT}%{_bindir}
+(
+cd bin
+for f in `ls *`
+do
+    cp -pr ${f} ${RPM_BUILD_ROOT}%{_bindir}/%{name}-${f}
+done
+)
 
 # Config
 mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-cp -p config/server.yaml.example ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/server.yaml
+cp -p %{SOURCE3} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/server.yaml
 ln -s ../../../etc/%{name} ${RPM_BUILD_ROOT}%{_datadir}/%{name}/config
 
 # Data
@@ -149,10 +156,16 @@ fi
 %{_datadir}/%{name}/views
 %{_datadir}/%{name}/config
 %dir %attr(0700,apache,apache) %{_localstatedir}/lib/%{name}
-%doc README.md CHANGES.md HACKING.md composer.json config contrib specification
+%doc README.md CHANGES.md HACKING.md DEVELOPMENT.md SERVER.md composer.json config contrib specification
 %license agpl-3.0.txt
 
 %changelog
+* Fri Dec 04 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.34
+- correctly name bin scripts
+
+* Fri Dec 04 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.33
+- use own config, add some more stuff to doc section
+
 * Thu Dec 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.32
 - update to 3e8a190325a457e17a2eeeac389715836873ff88
 
