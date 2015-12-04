@@ -17,9 +17,6 @@ HOSTNAME=storage.example
 
 sudo dnf -y update
 
-# set hostname
-sudo hostnamectl set-hostname ${HOSTNAME}
-
 ###############################################################################
 # SOFTWARE
 ###############################################################################
