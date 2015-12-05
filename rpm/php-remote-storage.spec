@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           3e8a190325a457e17a2eeeac389715836873ff88
+%global github_commit           9222616442ddb6b1a512784901490c85a6e67016
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.34%{?dist}
+Release:    0.35%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -49,7 +49,7 @@ BuildRequires:  php-composer(fkooman/oauth) >= 5.0.0
 BuildRequires:  php-composer(fkooman/oauth) < 6.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.1.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
@@ -77,7 +77,7 @@ Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.1.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
@@ -160,6 +160,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Sat Dec 05 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.35
+- update to 9222616442ddb6b1a512784901490c85a6e67016
+
 * Fri Dec 04 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.34
 - correctly name bin scripts
 

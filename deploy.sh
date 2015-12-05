@@ -34,7 +34,7 @@ sudo dnf -y install mod_ssl php php-opcache php-fpm httpd mod_security \
 ###############################################################################
 
 # Generate the private key
-sudo openssl genrsa -out /etc/pki/tls/private/${HOSTNAME}.key 2048
+sudo openssl genrsa -out /etc/pki/tls/private/${HOSTNAME}.key 4096 
 sudo chmod 600 /etc/pki/tls/private/${HOSTNAME}.key
 
 # Create the CSR (can be used to obtain real certificate!)
