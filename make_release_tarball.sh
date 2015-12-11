@@ -1,6 +1,6 @@
 #!/bin/sh
-COMMIT=9222616442ddb6b1a512784901490c85a6e67016
-VERSION=0.9.8
+COMMIT=9006e17edae2b1bddfc01da3cfcdc233032118d0
+VERSION=0.9.9
 
 (
     rm -rf release
