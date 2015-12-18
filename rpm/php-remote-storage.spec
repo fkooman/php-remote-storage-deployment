@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           9222616442ddb6b1a512784901490c85a6e67016
+%global github_commit           c830eab7c15f30cf750dbe0aa445570b745045c6
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.35%{?dist}
+Release:    0.36%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -37,7 +37,7 @@ BuildRequires:  php(language) >= 5.4
 BuildRequires:  php-json
 BuildRequires:  php-pdo
 BuildRequires:  php-spl
-BuildRequires:  php-composer(fkooman/http) >= 1.3.1
+BuildRequires:  php-composer(fkooman/http) >= 1.4.0
 BuildRequires:  php-composer(fkooman/http) < 2.0.0
 BuildRequires:  php-composer(fkooman/config) >= 1.0.0
 BuildRequires:  php-composer(fkooman/config) < 2.0.0
@@ -63,7 +63,7 @@ Requires:   php(language) >= 5.4
 Requires:   php-json
 Requires:   php-pdo
 Requires:   php-spl
-Requires:   php-composer(fkooman/http) >= 1.3.1
+Requires:   php-composer(fkooman/http) >= 1.4.0
 Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/config) >= 1.0.0
 Requires:   php-composer(fkooman/config) < 2.0.0
@@ -160,6 +160,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Mon Dec 14 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.36
+- update to c830eab7c15f30cf750dbe0aa445570b745045c6
+
 * Sat Dec 05 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.35
 - update to 9222616442ddb6b1a512784901490c85a6e67016
 
