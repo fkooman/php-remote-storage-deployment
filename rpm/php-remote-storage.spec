@@ -51,7 +51,7 @@ BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.1.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.1
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) >= 1.0.0
 BuildRequires:  php-composer(fkooman/tpl-twig) < 2.0.0
@@ -79,7 +79,7 @@ Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) >= 2.1.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-bearer) < 3.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-form) >= 3.0.1
 Requires:   php-composer(fkooman/rest-plugin-authentication-form) < 4.0.0
 Requires:   php-composer(fkooman/tpl-twig) >= 1.0.0
 Requires:   php-composer(fkooman/tpl-twig) < 2.0.0
