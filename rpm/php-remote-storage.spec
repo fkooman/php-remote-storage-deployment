@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -160,6 +160,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Thu Jan 07 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-2
+- COPR is confused about the tar format, hopefully bump will fix this
+
 * Thu Jan 07 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 
