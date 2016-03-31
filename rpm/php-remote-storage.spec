@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           569b0ee189ebd8ee0831f2e436188b0d5f2ae9e2
+%global github_commit           1897bbce8e05791fa7cbc3a0311337cb66456766
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-remote-storage
-Version:    1.0.1
+Version:    1.0.2
 Release:    2%{?dist}
 Summary:    remoteStorage server written in PHP
 
@@ -43,8 +43,8 @@ BuildRequires:  php-composer(fkooman/config) >= 1.0.0
 BuildRequires:  php-composer(fkooman/config) < 2.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
-BuildRequires:  php-composer(fkooman/json) >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 2.0.0
+BuildRequires:  php-composer(fkooman/json) < 3.0.0
 BuildRequires:  php-composer(fkooman/oauth) >= 5.0.0
 BuildRequires:  php-composer(fkooman/oauth) < 6.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
@@ -69,8 +69,8 @@ Requires:   php-composer(fkooman/config) >= 1.0.0
 Requires:   php-composer(fkooman/config) < 2.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
-Requires:   php-composer(fkooman/json) >= 1.0.0
-Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 2.0.0
+Requires:   php-composer(fkooman/json) < 3.0.0
 Requires:   php-composer(fkooman/oauth) >= 5.0.0
 Requires:   php-composer(fkooman/oauth) < 6.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
@@ -139,6 +139,9 @@ echo 'require_once "%{buildroot}%{_datadir}/%{name}/src/%{composer_namespace}/au
 semanage fcontext -a -t httpd_sys_rw_content_t '%{_localstatedir}/lib/%{name}(/.*)?' 2>/dev/null || :
 restorecon -R %{_localstatedir}/lib/%{name} || :
 
+# remove template cache if it is there
+rm -rf %{_localstatedir}/lib/%{name}/tpl/* >/dev/null 2>/dev/null || :
+
 %postun
 if [ $1 -eq 0 ] ; then  # final removal
 semanage fcontext -d -t httpd_sys_rw_content_t '%{_localstatedir}/lib/%{name}(/.*)?' 2>/dev/null || :
@@ -160,6 +163,12 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Thu Mar 31 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-2
+- remove the template cache on install/update
+
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-1
+- update to 1.0.2
+
 * Thu Jan 07 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-2
 - COPR is confused about the tar format, hopefully bump will fix this
 
