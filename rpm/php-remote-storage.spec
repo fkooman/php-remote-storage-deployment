@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           1897bbce8e05791fa7cbc3a0311337cb66456766
+%global github_commit           6c1be286870ea816e5cd377389c0831621f80840
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-remote-storage
-Version:    1.0.2
-Release:    2%{?dist}
+Version:    1.0.3
+Release:    1%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -41,8 +41,8 @@ BuildRequires:  php-composer(fkooman/http) >= 1.4.0
 BuildRequires:  php-composer(fkooman/http) < 2.0.0
 BuildRequires:  php-composer(fkooman/config) >= 1.0.0
 BuildRequires:  php-composer(fkooman/config) < 2.0.0
-BuildRequires:  php-composer(fkooman/io) >= 1.0.0
-BuildRequires:  php-composer(fkooman/io) < 2.0.0
+BuildRequires:  php-composer(fkooman/io) >= 2.0.0
+BuildRequires:  php-composer(fkooman/io) < 3.0.0
 BuildRequires:  php-composer(fkooman/json) >= 2.0.0
 BuildRequires:  php-composer(fkooman/json) < 3.0.0
 BuildRequires:  php-composer(fkooman/oauth) >= 5.0.0
@@ -67,8 +67,8 @@ Requires:   php-composer(fkooman/http) >= 1.4.0
 Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/config) >= 1.0.0
 Requires:   php-composer(fkooman/config) < 2.0.0
-Requires:   php-composer(fkooman/io) >= 1.0.0
-Requires:   php-composer(fkooman/io) < 2.0.0
+Requires:   php-composer(fkooman/io) >= 2.0.0
+Requires:   php-composer(fkooman/io) < 3.0.0
 Requires:   php-composer(fkooman/json) >= 2.0.0
 Requires:   php-composer(fkooman/json) < 3.0.0
 Requires:   php-composer(fkooman/oauth) >= 5.0.0
@@ -163,6 +163,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Wed May 25 2016 François Kooman <fkooman@tuxed.net> - 1.0.3-1
+- update to 1.0.3
+
 * Thu Mar 31 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-2
 - remove the template cache on install/update
 
