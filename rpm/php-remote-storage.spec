@@ -9,7 +9,7 @@
 
 Name:       php-remote-storage
 Version:    2.0.0
-Release:    0.2%{?dist}
+Release:    0.3%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -56,6 +56,7 @@ Requires:   php-composer(symfony/polyfill-php56)
 Requires:   php-composer(symfony/yaml)
 Requires:   php-composer(twig/twig) < 2
 
+Requires:   mod_security
 Requires:   mod_xsendfile
 
 %if 0%{?fedora} >= 24
@@ -152,6 +153,9 @@ fi
 %license LICENSE
 
 %changelog
+* Tue Jan 17 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.3
+- rebuilt
+
 * Tue Jan 17 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.2
 - rebuilt
 
