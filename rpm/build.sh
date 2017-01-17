@@ -13,7 +13,7 @@ GITHUB_SHORT=`echo ${GITHUB_COMMIT} | head -c 7`
 cp $1* ~/rpmbuild/SOURCES/
 mv ~/rpmbuild/SOURCES/$1.spec ~/rpmbuild/SPECS/
 cd ~/rpmbuild/SOURCES
-curl -O -L https://github.com/${GITHUB_OWNER}/${GITHUB_NAME}/releases/download/${VERSION}/${NAME}-${VERSION}.tar.xz
+curl -O -L https://github.com/${GITHUB_OWNER}/${GITHUB_NAME}/archive/${GITHUB_COMMIT}/${NAME}-${VERSION}-${GITHUB_SHORT}.tar.gz
 cd ~/rpmbuild/SPECS/
 rpmbuild -bs $1.spec
 rpmbuild -bb $1.spec
