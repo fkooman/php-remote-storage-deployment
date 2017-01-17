@@ -9,7 +9,7 @@
 
 Name:       php-remote-storage
 Version:    2.0.0
-Release:    0.1%{?dist}
+Release:    0.2%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -152,6 +152,9 @@ fi
 %license LICENSE
 
 %changelog
+* Tue Jan 17 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.2
+- rebuilt
+
 * Tue Jan 17 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.1
 - update to master branch for future 2.0.0 release
 
