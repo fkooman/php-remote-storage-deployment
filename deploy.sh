@@ -22,12 +22,11 @@ sudo dnf -y update
 ###############################################################################
 
 # enable COPR repos
-sudo dnf -y copr enable fkooman/php-base
 sudo dnf -y copr enable fkooman/php-remote-storage
 
 # install software
-sudo dnf -y install mod_ssl php php-opcache php-fpm httpd mod_security \
-    mod_xsendfile openssl php-remote-storage
+sudo dnf -y install mod_ssl php-cli php-opcache php-fpm httpd openssl \
+    php-remote-storage
 
 ###############################################################################
 # CERTIFICATE
@@ -48,7 +47,7 @@ sudo openssl req -subj "/CN=${HOSTNAME}" -sha256 -new -x509 -key /etc/pki/tls/pr
 ###############################################################################
 
 # empty the default Apache config file
-sudo sh -c 'echo "" > /etc/httpd/conf.d/php-remote-storage.conf'
+sudo sh -c 'echo "# emptied by deploy.sh" > /etc/httpd/conf.d/php-remote-storage.conf'
 
 # use the global httpd config file
 sudo cp storage.example-httpd.conf /etc/httpd/conf.d/${HOSTNAME}.conf
@@ -71,10 +70,6 @@ sudo sed -i 's/expose_php = On/expose_php = Off/' /etc/php.ini
 # recommendation from https://php.net/manual/en/opcache.installation.php
 sudo sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=60/' /etc/php.d/10-opcache.ini
 
-# PHP-FPM configuration
-sudo sed -i "s|listen = /run/php-fpm/www.sock|listen = [::]:9000|" /etc/php-fpm.d/www.conf
-sudo sed -i "s/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 127.0.0.1,::1/" /etc/php-fpm.d/www.conf
-
 ###############################################################################
 # APP
 ###############################################################################
@@ -91,7 +86,7 @@ sudo systemctl enable httpd
 sudo systemctl enable php-fpm
 
 # start HTTPD and PHP-FPM
-sudo systemctl start php-fpm
-sudo systemctl start httpd
+sudo systemctl restart php-fpm
+sudo systemctl restart httpd
 
 # ALL DONE!
