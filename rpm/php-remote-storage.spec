@@ -4,12 +4,12 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           73f9343d8551a0bf980b0898c20e5127d693892b
+%global github_commit           5d6c38854a0b8f3c9d08df3aa2cf423c69535dc8
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 
 Name:       php-remote-storage
 Version:    2.0.0
-Release:    0.7%{?dist}
+Release:    0.8%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -36,6 +36,7 @@ BuildRequires:  php-session
 BuildRequires:  php-spl
 BuildRequires:  php-composer(fedora/autoloader)
 BuildRequires:  php-composer(paragonie/random_compat)
+BuildRequires:  php-composer(paragonie/constant_time_encoding)
 BuildRequires:  php-composer(symfony/polyfill-php56)
 BuildRequires:  php-composer(symfony/yaml)
 BuildRequires:  php-composer(twig/twig) < 2
@@ -52,6 +53,7 @@ Requires:   php-session
 Requires:   php-spl
 Requires:   php-composer(fedora/autoloader)
 Requires:   php-composer(paragonie/random_compat)
+Requires:   php-composer(paragonie/constant_time_encoding)
 Requires:   php-composer(symfony/polyfill-php56)
 Requires:   php-composer(symfony/yaml)
 Requires:   php-composer(twig/twig) < 2
@@ -153,6 +155,9 @@ fi
 %license LICENSE
 
 %changelog
+* Thu Feb 16 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.8
+- rebuilt
+
 * Wed Feb 08 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.7
 - rebuilt
 
