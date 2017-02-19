@@ -4,12 +4,12 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           5d6c38854a0b8f3c9d08df3aa2cf423c69535dc8
+%global github_commit           cdf57798e11d98f6cb7c358417b048ba50055787
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 
 Name:       php-remote-storage
 Version:    2.0.0
-Release:    0.8%{?dist}
+Release:    0.9%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -90,6 +90,7 @@ require_once '%{_datadir}/php/Fedora/Autoloader/autoload.php';
 \Fedora\Autoloader\Autoload::addPsr4('fkooman\\RemoteStorage\\', __DIR__);
 \Fedora\Autoloader\Dependencies::required(array(
     '%{_datadir}/php/random_compat/autoload.php',
+    '%{_datadir}/php/ParagonIE/ConstantTime/autoload.php',
     '%{_datadir}/php/Symfony/Polyfill/autoload.php',
     '%{_datadir}/php/Symfony/Component/Yaml/autoload.php',
     '%{_datadir}/php/Twig/autoload.php',
@@ -155,6 +156,9 @@ fi
 %license LICENSE
 
 %changelog
+* Sun Feb 19 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.9
+- rebuilt
+
 * Thu Feb 16 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.8
 - rebuilt
 
