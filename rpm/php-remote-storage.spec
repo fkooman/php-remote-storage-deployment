@@ -4,12 +4,12 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           37b6d2eae5adbc87fc1e6f98960f80b660fcf596
+%global github_commit           5ceeff01e297eaf203fee1a3d16b86e73acf8ddc
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 
 Name:       php-remote-storage
 Version:    2.0.0
-Release:    0.10%{?dist}
+Release:    0.11%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -156,6 +156,9 @@ fi
 %license LICENSE
 
 %changelog
+* Wed Feb 22 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.11
+- rebuilt
+
 * Wed Feb 22 2017 François Kooman <fkooman@tuxed.net> - 2.0.0-0.10
 - rebuilt
 
